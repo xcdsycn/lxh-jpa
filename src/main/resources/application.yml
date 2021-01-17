@@ -1,4 +1,6 @@
-
+es:
+  host:
+    ip: localhost
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
@@ -10,7 +12,7 @@ spring:
       maximumPoolSize: 15 #连接池中允许的最大连接数。缺省值：10；推荐的公式：((core_count * 2) + effective_spindle_count)
   elasticsearch:
     rest:
-      uris: http://${GSE_ES_HOST:${es.host.ip}}:${GSE_ES_PORT:9800}
+      uris: http://${GSE_ES_HOST:${es.host.ip}}:${GSE_ES_PORT:9200}
       username: ${ES_USER:elastic}
       password: ${ES_PASS:zGGKZUG4D34gdwkyPCtXCd4KU56b2XtA}
 server:
