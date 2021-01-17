@@ -1,5 +1,6 @@
 package com.lxh.jpa.repository;
 
+import com.github.javafaker.Faker;
 import com.lxh.jpa.entity.User;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -12,10 +13,12 @@ import java.util.List;
 
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
-
 class UserRepositoryTest  {
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private Faker faker;
 
     @Test
     public void baseTest() {
@@ -29,6 +32,7 @@ class UserRepositoryTest  {
 
     @Test
     public void findByUsernameAndPassword() {
+        System.out.println(faker.address().fullAddress());
         List<User> userList = userRepository.findByUsernameAndPassword("jpa", "123456");
         Assert.notEmpty(userList,"The list must not be notEmpty");
         userList.forEach(System.out::println);
